@@ -147,7 +147,7 @@ function resultsData(arr, term, file){
           number++;
         }      
       });
-      termObject.number = number;
+      termObject.number = (number > 0) ? number : 'No';
       termObject.file = fileName;
       results.push(termObject);
     });
