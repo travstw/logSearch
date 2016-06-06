@@ -160,7 +160,8 @@ function resultsData(arr, term, file){
     
     var resultsString = 'Search Results: \n\n';
     results.forEach(function(item){
-      resultsString += '\'' + item.name + '\'' + ' --- ' + item.number + ' matches found in ' + item.file + '\n';
+      var matches = (item.number === 1) ? 'match' : 'matches';
+      resultsString += '\'' + item.name + '\'' + ' --- ' + item.number + matches + ' found in ' + item.file + '\n';
     });
 //     console.log(resultsArea.value);
     resultsArea.value = resultsString;
