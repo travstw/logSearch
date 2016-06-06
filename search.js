@@ -114,10 +114,10 @@ function parse(text, term, file){
     });
     
   } else {
-    parsed.forEach(function(x){
+    parsed.forEach(function(t){
       var allMatched;
       for(var i = 0; i < term.length; i++){
-         if(x.toLowerCase().indexOf(term[i].toLowerCase()) !== -1){
+         if(t.toLowerCase().indexOf(term[i].toLowerCase()) !== -1){
            allMatched = true;         
             
          } else {
@@ -126,8 +126,8 @@ function parse(text, term, file){
          }
                  
       }
-      if(allMatched && !checkArray(filtered, x)){
-           filtered.push(x);
+      if(allMatched && !checkArray(filtered, t)){
+           filtered.push(t);
       }
     });   
   }
@@ -142,9 +142,8 @@ function resultsData(arr, term, file){
     term.forEach(function(x){
       var termObject = {name: x};
       var number = 0;
-      arr.forEach(function(y){
-        console.log(x + ':' + y);
-        if (y.indexOf(x) !== -1){
+      arr.forEach(function(y){        
+        if (y.toLowerCase().indexOf(x.toLowerCase()) !== -1){
           number++;
         }      
       });
