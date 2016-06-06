@@ -1,6 +1,6 @@
 
 
-input {
+#search {
   width: 500px;
   margin-top: 30px;
 }
@@ -25,4 +25,8 @@ input {
 
 #main {
   padding: 15px;
+}
+
+#andOr {
+  display: inline;
 }

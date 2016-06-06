@@ -98,19 +98,39 @@ function parse(text, term, file){
   
   var parsed = text.split('\n');
   var filtered = [];
+  var searchType = document.querySelector('.check:checked').value;
   
-  
-  parsed.forEach(function(x){
-    term.forEach(function(y){
-       if(x.toLowerCase().indexOf(y.toLowerCase()) !== -1){
+  if(searchType === 'or'){
+    parsed.forEach(function(x){
+      term.forEach(function(y){
+         if(x.toLowerCase().indexOf(y.toLowerCase()) !== -1){
           
-          if(!checkArray(filtered, x)){
-            filtered.push(x);
-          }
-       }
+            if(!checkArray(filtered, x)){
+              filtered.push(x);
+            }
+         }
                  
+      });
     });
-  });
+    
+  } else {
+    parsed.forEach(function(x){
+      var allMatched;
+      for(var i = 0; i < term.length; i++){
+         if(x.toLowerCase().indexOf(term[i].toLowerCase()) !== -1){
+           allMatched = true;         
+            
+         } else {
+           allMatched = false;
+           break;
+         }
+                 
+      }
+      if(allMatched && !checkArray(filtered, x)){
+           filtered.push(x);
+      }
+    });   
+  }
   resultsData(filtered, term, file);
   addToTextArea(filtered);
 }
