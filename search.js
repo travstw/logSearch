@@ -74,6 +74,7 @@ function search(){
 function searchResults(){
 
   if(results.length){
+    console.log('what');
     results = [];
     var resultsText = document.getElementById('output').value;
     var term = document.getElementById('search').value.split(',');
