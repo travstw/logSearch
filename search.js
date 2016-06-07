@@ -171,6 +171,7 @@ function resultsData(arr, term, file){
       resultsString += '\'' + item.name + '\'' + ' --- ' + item.number + ' ' + matches + ' found in ' + item.file + '\n';
     });
 
+    document.getElementById('searchResults') = enabled;
     resultsArea.value = resultsString;
     resultsArea.textContent = resultsString;
   }
