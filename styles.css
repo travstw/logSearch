@@ -29,4 +29,6 @@
 
 #andOr {
   display: inline;
+  margin-left: 3px;
+  margin-right: 5px;
 }
