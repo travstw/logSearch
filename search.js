@@ -73,7 +73,7 @@ function search(){
 
 function searchResults(){
 
-  if(results){
+  if(results.length){
     results = [];
     var resultsText = document.getElementById('output').value;
     var term = document.getElementById('search').value.split(',');
