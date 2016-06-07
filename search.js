@@ -12,6 +12,7 @@ function handleFileSelect(evt) {
     
     var fileNameString = 'Files Loaded: \n\n';
     for (var i = 0; i < Object.keys(files).length; i++){
+      readFile(files[i]);
       fileNameString += files[i].name + '\n';
     }
   
@@ -55,17 +56,17 @@ function search(){
   results = [];
   
   var term = document.getElementById('search').value.split(',');
-  
+  document.getElementById('status').value = 'Searching...';
+
   if(files){
     document.getElementById('output').value = '';
     for (var i = 0; i < Object.keys(files).length; i++){
-      document.getElementById('status').value = 'Searching...';
-      readFile(files[i], term);
+      parse(files[i].text, term, files[i]);
+      // readFile(files[i], term);
     }    
   } else {
       
       document.getElementById('output').value = '';
-      document.getElementById('status').value = 'Searching...';
       parse(pastedText, term, null);
   }
       
@@ -100,7 +101,8 @@ function readFile(file, term){
      reader.onload = (function(theFile) {
         return function(e) {
           
-          parse(e.target.result, term, file);
+          // parse(e.target.result, term, file);
+          file.text = e.target.result;
            
         };
       })(file);
