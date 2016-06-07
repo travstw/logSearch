@@ -103,6 +103,7 @@ function readFile(file, term){
           
           // parse(e.target.result, term, file);
           file.text = e.target.result;
+          console.log(file.text);
            
         };
       })(file);
