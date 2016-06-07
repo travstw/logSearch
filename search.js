@@ -72,14 +72,22 @@ function search(){
 }
 
 function searchResults(){
-  results = [];
-  var resultsText = document.getElementById('output').value;
-  var term = document.getElementById('search').value.split(',');
-  document.getElementById('output').value = '';
-  document.getElementById('status').value = 'Searching...';
 
-  parse(resultsText, term, null);
+  if(results){
+    results = [];
+    var resultsText = document.getElementById('output').value;
+    var term = document.getElementById('search').value.split(',');
+    document.getElementById('output').value = '';
+    document.getElementById('status').value = 'Searching...';
 
+    parse(resultsText, term, null);
+  } else {
+
+    document.getElementById('status').value = "There are no current results to search";
+
+
+
+  }
 }
 
 
