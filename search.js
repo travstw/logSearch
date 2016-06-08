@@ -127,7 +127,7 @@ function parse(text, term, file){
       term.forEach(function(y){
          if(x.toLowerCase().indexOf(y.toLowerCase()) !== -1){
           
-            if(!checkArray(filtered, x)){
+            if(!checkArray(filtered.matches, x)){
               filtered.matches.push(x);
             }
          }
@@ -155,6 +155,7 @@ function parse(text, term, file){
     results.push(filtered);  
   }
   // resultsData();
+  console.log(results);
   addToTextArea();
 }
 
@@ -203,7 +204,7 @@ function addToTextArea(){
     item.matches.forEach(function(match){
       outputString += match + '\n';  
 
-    })
+    });
 
       
   });
