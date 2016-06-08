@@ -115,8 +115,8 @@ function parse(text, term, file){
   
   var parsed = text.split('\n');
   var filtered = {
-    lastModified: file.lastModified,
-    name: file.name,
+    lastModified: (file) ? file.lastModified : 0,
+    name: (file) ? file.name : 'text',
     term: term,
     matches: []
   };
@@ -210,7 +210,6 @@ function addToTextArea(){
   results_Sorted.forEach(function(item){
     item.matches.forEach(function(match){
       outputString += match + '\n';  
-
     });
 
       
