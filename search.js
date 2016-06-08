@@ -1,19 +1,4 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @travstw
- Unwatch 1
-  Star 0
-  Fork 0 travstw/logSearch
- Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs  Settings
-Tree: 3b85bf58e3 Find file Copy pathlogSearch/search.js
-3b85bf5  21 hours ago
-@travstw travstw searchResults
-1 contributor
-RawBlameHistory     215 lines (154 sloc)  4.79 KB
+
 var files;
 var pastedText;
 var results = [];
@@ -228,5 +213,3 @@ function checkArray(arr, line){
   return exists;
 }
 
-Status API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
