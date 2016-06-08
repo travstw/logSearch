@@ -110,7 +110,7 @@ function readFile(file, index){
           // console.log(file);
           setTimeout(function(){
             console.log('pause');
-          }, 50);
+          }, 100);
           
           var textArea = document.getElementById('status');
           textArea.value = textArea.value + file.name + '\n';
