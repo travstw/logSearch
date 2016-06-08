@@ -107,13 +107,14 @@ function readFile(file, index){
           
           // parse(e.target.result, term, file);
           file.text = e.target.result;
+          console.log(file);
           
           var textArea = document.getElementById('status');
           textArea.value = textArea.value + file.name + '\n';
           if(index === files.length - 1){
             var finishLoad = textArea.value.replace('Loading Files...\n', 'Loaded Files...\n');
             textArea.value = finishLoad;
-          };
+          }
 
         };
       })(file);
