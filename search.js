@@ -14,7 +14,8 @@ function handleFileSelect(evt) {
     // var fileNameString = 'Files Loaded: \n\n';
     for (var i = 0; i < files.length; i++){
       // fileNameString += files[i].name + '\n';
-      readFile(files[i]);
+      var file = files[i];
+      readFile(file);
       
     }
   
