@@ -7,8 +7,8 @@ function handleFileSelect(evt) {
     evt.preventDefault();
 
     files = evt.dataTransfer.files; 
-    console.log(files);
-    var textArea = document.getElementById('status').value = 'Loading Files...';
+    
+    var textArea = document.getElementById('status').value = 'Loading Files...\n';
     var textMain = document.getElementById('output');
     
     // var fileNameString = 'Files Loaded: \n\n';
