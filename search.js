@@ -164,7 +164,7 @@ function parse(text, term, name){
       }
     });   
   }
-  resultsData(filtered, term, file);
+  resultsData(filtered, term, name);
   addToTextArea(filtered);
 }
 
