@@ -114,7 +114,12 @@ function readFile(file, term){
 function parse(text, term, file){
   
   var parsed = text.split('\n');
-  var filtered = [];
+  var filtered = {
+    lastModified: file.lastModified,
+    name: file.name,
+    term: term,
+    matches: []
+  };
   var searchType = document.querySelector('.check:checked').value;
   
   if(searchType === 'or'){
@@ -123,7 +128,7 @@ function parse(text, term, file){
          if(x.toLowerCase().indexOf(y.toLowerCase()) !== -1){
           
             if(!checkArray(filtered, x)){
-              filtered.push(x);
+              filtered.matches.push(x);
             }
          }
                  
@@ -143,16 +148,17 @@ function parse(text, term, file){
          }
                  
       }
-      if(allMatched && !checkArray(filtered, t)){
-           filtered.push(t);
+      if(allMatched && !checkArray(filtered.matches, t)){
+           filtered.matches.push(t);
       }
-    });   
+    }); 
+    results.push(filtered);  
   }
-  resultsData(filtered, term, file);
-  addToTextArea(filtered);
+  // resultsData();
+  addToTextArea();
 }
 
-function resultsData(arr, term, file){
+function resultsData(){
   var fileName = (file) ? file.name : 'text'; 
   
   if(arr){
@@ -182,22 +188,32 @@ function resultsData(arr, term, file){
     });
 
     resultsArea.value = resultsString;
-    resultsArea.textContent = resultsString;
+    
   }
   
 }
 
-function addToTextArea(arr){
+function addToTextArea(){
   var textArea = document.getElementById('output');
   var resultsArea = document.getElementById('status');
   var outputString = textArea.value;
-  
-  arr.forEach(function(item){
-    outputString += item + '\n';    
+  var results_Sorted = results.sort(sortResults);
+
+  results_Sorted.forEach(function(item){
+    item.matches.forEach(function(match){
+      outputString += match + '\n';  
+
+    })
+
+      
   });
   
   textArea.value = outputString;
   
+}
+
+function sortResults(a,b){
+  return a.lastModified - b.lastModified;
 }
 
 
