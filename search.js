@@ -75,7 +75,7 @@ function search(){
 function searchResults(){
 
   if(results.length){
-    console.log('what');
+    
     results = [];
     var resultsText = document.getElementById('output').value;
     var term = document.getElementById('search').value.split(',');
@@ -157,7 +157,8 @@ function parse(text, term, file){
   }
   // resultsData();
   results.push(filtered);
-  if(results.length === files.length){
+  var end = (files) ? files.length : 1;
+  if(results.length === end){
     console.log(results);
     addToTextArea();
 
