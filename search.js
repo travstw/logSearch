@@ -1,3 +1,19 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @travstw
+ Unwatch 1
+  Star 0
+  Fork 0 travstw/logSearch
+ Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs  Settings
+Tree: 3b85bf58e3 Find file Copy pathlogSearch/search.js
+3b85bf5  21 hours ago
+@travstw travstw searchResults
+1 contributor
+RawBlameHistory     215 lines (154 sloc)  4.79 KB
 var files;
 var pastedText;
 var results = [];
@@ -7,23 +23,19 @@ function handleFileSelect(evt) {
     evt.preventDefault();
 
     files = evt.dataTransfer.files; 
-    
-    var textArea = document.getElementById('status').value = 'Loading Files...\n';
+    var textArea = document.getElementById('status');
     var textMain = document.getElementById('output');
     
-    // var fileNameString = 'Files Loaded: \n\n';
-    for (var i = 0; i < files.length; i++){
-      // fileNameString += files[i].name + '\n';
-      var file = files[i];
-      readFile(file, i);
-      
+    var fileNameString = 'Files Loaded: \n\n';
+    for (var i = 0; i < Object.keys(files).length; i++){
+      fileNameString += files[i].name + '\n';
     }
   
-    // textArea.value = fileNameString;
-    // textMain.value = '';
+    textArea.value = fileNameString;
+    textMain.value = '';
     pastedText = '';
   
-    
+    console.log(files);
     
 }
 
@@ -56,21 +68,20 @@ dropZone.addEventListener('paste', handlePaste, false);
 
 
 function search(){
-  
   results = [];
   
   var term = document.getElementById('search').value.split(',');
-  document.getElementById('status').value = 'Searching...';
-
+  
   if(files){
     document.getElementById('output').value = '';
-    for (var i = 0; i < files.length; i++){
-      parse(files[i].text, term, files[i].name);
-      // readFile(files[i], term);
+    for (var i = 0; i < Object.keys(files).length; i++){
+      document.getElementById('status').value = 'Searching...';
+      readFile(files[i], term);
     }    
   } else {
       
       document.getElementById('output').value = '';
+      document.getElementById('status').value = 'Searching...';
       parse(pastedText, term, null);
   }
       
@@ -79,7 +90,7 @@ function search(){
 function searchResults(){
 
   if(results.length){
-    
+    console.log('what');
     results = [];
     var resultsText = document.getElementById('output').value;
     var term = document.getElementById('search').value.split(',');
@@ -97,7 +108,7 @@ function searchResults(){
 }
 
 
-function readFile(file, index){
+function readFile(file, term){
   
   
     var reader = new FileReader();
@@ -105,20 +116,8 @@ function readFile(file, index){
      reader.onload = (function(theFile) {
         return function(e) {
           
-          // parse(e.target.result, term, file);
-          file.text = e.target.result;
-          console.log(file);
-          // setTimeout(function(){
-          //   console.log('pause');
-          // }, 100);
-          
-          var textArea = document.getElementById('status');
-          textArea.value = textArea.value + file.name + '\n';
-          if(index === files.length - 1){
-            var finishLoad = textArea.value.replace('Loading Files...\n', 'Loaded Files...\n');
-            textArea.value = finishLoad;
-          }
-
+          parse(e.target.result, term, file);
+           
         };
       })(file);
   
@@ -127,7 +126,7 @@ function readFile(file, index){
       
 }
 
-function parse(text, term, name){
+function parse(text, term, file){
   
   var parsed = text.split('\n');
   var filtered = [];
@@ -164,12 +163,12 @@ function parse(text, term, name){
       }
     });   
   }
-  resultsData(filtered, term, name);
+  resultsData(filtered, term, file);
   addToTextArea(filtered);
 }
 
-function resultsData(arr, term, name){
-  var fileName = (name) ? name : 'text'; 
+function resultsData(arr, term, file){
+  var fileName = (file) ? file.name : 'text'; 
   
   if(arr){
     term.forEach(function(x){
@@ -184,8 +183,11 @@ function resultsData(arr, term, name){
       termObject.file = fileName;
       results.push(termObject);
     });
+    console.log(results);
     
-
+     
+    console.log(fileName);
+  
     var resultsArea = document.getElementById('status');
     
     var resultsString = 'Search Results: \n\n';
@@ -226,3 +228,5 @@ function checkArray(arr, line){
   return exists;
 }
 
+Status API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
