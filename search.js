@@ -152,10 +152,11 @@ function parse(text, term, file){
            filtered.matches.push(t);
       }
     }); 
-    results.push(filtered);
-    console.log(filtered);  
+    
+   
   }
   // resultsData();
+  results.push(filtered);
   console.log(results);
   addToTextArea();
 }
