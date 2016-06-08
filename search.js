@@ -157,8 +157,13 @@ function parse(text, term, file){
   }
   // resultsData();
   results.push(filtered);
-  console.log(results);
-  addToTextArea();
+  if(results.length === files.length){
+    console.log(results);
+    addToTextArea();
+
+  }
+
+ 
 }
 
 function resultsData(){
