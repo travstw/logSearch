@@ -21,7 +21,7 @@ function handleFileSelect(evt) {
     // textMain.value = '';
     pastedText = '';
   
-    // console.log(files);
+    console.log(files);
     
 }
 
