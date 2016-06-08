@@ -111,8 +111,8 @@ function readFile(file, index){
           var textArea = document.getElementById('status');
           textArea.value = textArea.value + file.name + ' loaded\n';
           if(index === files.length){
-            textArea.replace('Loading Files...\n', '');
-           
+            var finishLoad = textArea.value.replace('Loading Files...\n', 'Loaded Files...\n');
+            textArea.value = finishLoad;
         };
           }
       })(file);
