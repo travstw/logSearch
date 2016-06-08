@@ -7,17 +7,18 @@ function handleFileSelect(evt) {
     evt.preventDefault();
 
     files = evt.dataTransfer.files; 
-    var textArea = document.getElementById('status');
+    var textArea = document.getElementById('status').value = 'Loading Files...';
     var textMain = document.getElementById('output');
     
-    var fileNameString = 'Files Loaded: \n\n';
+    // var fileNameString = 'Files Loaded: \n\n';
     for (var i = 0; i < Object.keys(files).length; i++){
+      // fileNameString += files[i].name + '\n';
       readFile(files[i]);
-      fileNameString += files[i].name + '\n';
+      
     }
   
-    textArea.value = fileNameString;
-    textMain.value = '';
+    // textArea.value = fileNameString;
+    // textMain.value = '';
     pastedText = '';
   
     // console.log(files);
@@ -103,7 +104,8 @@ function readFile(file, term){
           
           // parse(e.target.result, term, file);
           file.text = e.target.result;
-          console.log(file);
+          // console.log(file);
+          var textArea = document.getElementById('status').value = file.name + ' loaded';
            
         };
       })(file);
