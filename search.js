@@ -110,7 +110,7 @@ function readFile(file, index){
           console.log('hello ', file);
           var textArea = document.getElementById('status');
           textArea.value = textArea.value + file.name + ' loaded\n';
-          if(index === files.length){
+          if(index === files.length - 1){
             var finishLoad = textArea.value.replace('Loading Files...\n', 'Loaded Files...\n');
             textArea.value = finishLoad;
         };
