@@ -65,7 +65,7 @@ function search(){
   if(files){
     document.getElementById('output').value = '';
     for (var i = 0; i < files.length; i++){
-      parse(files[i].text, term, files[i]);
+      parse(files[i].text, term, files[i].name);
       // readFile(files[i], term);
     }    
   } else {
@@ -127,7 +127,7 @@ function readFile(file, index){
       
 }
 
-function parse(text, term, file){
+function parse(text, term, name){
   
   var parsed = text.split('\n');
   var filtered = [];
@@ -168,8 +168,8 @@ function parse(text, term, file){
   addToTextArea(filtered);
 }
 
-function resultsData(arr, term, file){
-  var fileName = (file) ? file.name : 'text'; 
+function resultsData(arr, term, name){
+  var fileName = (name) ? name : 'text'; 
   
   if(arr){
     term.forEach(function(x){
