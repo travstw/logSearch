@@ -56,7 +56,7 @@ dropZone.addEventListener('paste', handlePaste, false);
 
 
 function search(){
-  console.log(files);
+  
   results = [];
   
   var term = document.getElementById('search').value.split(',');
@@ -79,7 +79,7 @@ function search(){
 function searchResults(){
 
   if(results.length){
-    console.log('what');
+    
     results = [];
     var resultsText = document.getElementById('output').value;
     var term = document.getElementById('search').value.split(',');
@@ -107,14 +107,14 @@ function readFile(file, index){
           
           // parse(e.target.result, term, file);
           file.text = e.target.result;
-          console.log('hello ', file);
+          
           var textArea = document.getElementById('status');
           textArea.value = textArea.value + file.name + '\n';
           if(index === files.length - 1){
             var finishLoad = textArea.value.replace('Loading Files...\n', 'Loaded Files...\n');
             textArea.value = finishLoad;
           };
-          
+
         };
       })(file);
   
@@ -180,11 +180,8 @@ function resultsData(arr, term, file){
       termObject.file = fileName;
       results.push(termObject);
     });
-    console.log(results);
     
-     
-    console.log(fileName);
-  
+
     var resultsArea = document.getElementById('status');
     
     var resultsString = 'Search Results: \n\n';
