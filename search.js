@@ -79,7 +79,7 @@ function searchResults(){
     results = [];
     var resultsText = document.getElementById('output').value;
     var term = document.getElementById('search').value.split(',');
-    // document.getElementById('output').value = '';
+    document.getElementById('output').value = '';
     document.getElementById('status').value = 'Searching...';
 
     parse(resultsText, term, null);
