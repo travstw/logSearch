@@ -15,7 +15,7 @@ function handleFileSelect(evt) {
     for (var i = 0; i < files.length; i++){
       // fileNameString += files[i].name + '\n';
       var file = files[i];
-      readFile(file);
+      readFile(file, i);
       
     }
   
@@ -97,7 +97,7 @@ function searchResults(){
 }
 
 
-function readFile(file, term){
+function readFile(file, index){
   
   
     var reader = new FileReader();
@@ -110,8 +110,11 @@ function readFile(file, term){
           console.log('hello ', file);
           var textArea = document.getElementById('status');
           textArea.value = textArea.value + file.name + ' loaded\n';
+          if(index === files.length){
+            textArea.replace('Loading Files...\n', '');
            
         };
+          }
       })(file);
   
      reader.readAsText(file);    
