@@ -105,8 +105,8 @@ function readFile(file, term){
           // parse(e.target.result, term, file);
           file.text = e.target.result;
           // console.log(file);
-          var textArea = document.getElementById('status').value;
-          textArea += (file.name + ' loaded');
+          var textArea = document.getElementById('status');
+          textArea.value = textArea.value + file.name + ' loaded\n';
            
         };
       })(file);
