@@ -107,7 +107,7 @@ function readFile(file, term){
           
           // parse(e.target.result, term, file);
           file.text = e.target.result;
-          // console.log(file);
+          console.log('hello ', file);
           var textArea = document.getElementById('status');
           textArea.value = textArea.value + file.name + ' loaded\n';
            
