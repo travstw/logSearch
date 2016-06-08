@@ -107,10 +107,10 @@ function readFile(file, index){
           
           // parse(e.target.result, term, file);
           file.text = e.target.result;
-          // console.log(file);
-          setTimeout(function(){
-            console.log('pause');
-          }, 100);
+          console.log(file);
+          // setTimeout(function(){
+          //   console.log('pause');
+          // }, 100);
           
           var textArea = document.getElementById('status');
           textArea.value = textArea.value + file.name + '\n';
