@@ -152,7 +152,8 @@ function parse(text, term, file){
            filtered.matches.push(t);
       }
     }); 
-    results.push(filtered);  
+    results.push(filtered);
+    console.log(filtered);  
   }
   // resultsData();
   console.log(results);
