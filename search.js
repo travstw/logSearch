@@ -21,7 +21,7 @@ function handleFileSelect(evt) {
     // textMain.value = '';
     pastedText = '';
   
-    console.log(files);
+    
     
 }
 
@@ -54,6 +54,7 @@ dropZone.addEventListener('paste', handlePaste, false);
 
 
 function search(){
+  console.log(files);
   results = [];
   
   var term = document.getElementById('search').value.split(',');
