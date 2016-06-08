@@ -12,7 +12,7 @@ function handleFileSelect(evt) {
     var textMain = document.getElementById('output');
     
     // var fileNameString = 'Files Loaded: \n\n';
-    for (var i = 0; i < Object.keys(files).length; i++){
+    for (var i = 0; i < files.length; i++){
       // fileNameString += files[i].name + '\n';
       readFile(files[i]);
       
@@ -63,7 +63,7 @@ function search(){
 
   if(files){
     document.getElementById('output').value = '';
-    for (var i = 0; i < Object.keys(files).length; i++){
+    for (var i = 0; i < files.length; i++){
       parse(files[i].text, term, files[i]);
       // readFile(files[i], term);
     }    
