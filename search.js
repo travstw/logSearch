@@ -207,7 +207,7 @@ function resultsData(){
 
 function updateLinesSearched(){
   linesSearched++;
-  document.getElementById('status').value = 'Searching... ' + linesSearched + 'lines searched'; 
+  document.getElementById('status').value = 'Searching... ' + linesSearched + ' lines searched'; 
 }
 
 function addToTextArea(){
