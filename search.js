@@ -2,7 +2,7 @@
 var files;
 var pastedText;
 var results = [];
-var linesSearched = 0;
+
 
 function handleFileSelect(evt) {
     evt.stopPropagation();
@@ -55,7 +55,7 @@ dropZone.addEventListener('paste', handlePaste, false);
 
 function search(){
   results = [];
-  linesSearched = 0;
+  
   
   var term = document.getElementById('search').value.split(',');
   
@@ -127,7 +127,7 @@ function parse(text, term, file){
   
   if(searchType === 'or'){
     parsed.forEach(function(x){
-      updateLinesSearched();
+      
       term.forEach(function(y){
          if(x.toLowerCase().indexOf(y.toLowerCase()) !== -1){
           
@@ -142,7 +142,7 @@ function parse(text, term, file){
   } else {
     parsed.forEach(function(t){
       var allMatched;
-      updateLinesSearched();
+      
       for(var i = 0; i < term.length; i++){
          if(t.toLowerCase().indexOf(term[i].toLowerCase()) !== -1){
            allMatched = true;                     
@@ -205,10 +205,6 @@ function resultsData(){
   
 }
 
-function updateLinesSearched(){
-  linesSearched++;
-  document.getElementById('status').value = 'Searching... ' + linesSearched + ' lines searched'; 
-}
 
 function addToTextArea(){
   var textArea = document.getElementById('output');
