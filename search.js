@@ -65,49 +65,51 @@
 
   function search(){
     results = [];
-    
-    
-    var term = document.getElementById('search').value.split(',');
 
-    if(!term){
-      alert('No search terms entered');
-    } else {
+    var termValue = document.getElementById('search').value;
     
-      if(files){
-        document.getElementById('output').value = '';
-        for (var i = 0; i < Object.keys(files).length; i++){
-          document.getElementById('status').value = 'Searching...';
-          readFile(files[i], term);
-        }    
+    if(!termValue){      
+        alert('No search terms entered');
+      
       } else {
-          
+
+        var term = termValue.split(',');
+      
+        if(files){
           document.getElementById('output').value = '';
-          document.getElementById('status').value = 'Searching...';
-          parse(pastedText, term, null);
-      }
-          
-      }
-
-      function searchResults(){
-
-        if(results.length){
-          
-          results = [];
-          var resultsText = document.getElementById('output').value;
-          var term = document.getElementById('search').value.split(',');
-          document.getElementById('output').value = '';
-          document.getElementById('status').value = 'Searching...';
-
-          parse(resultsText, term, null);
-
+          for (var i = 0; i < Object.keys(files).length; i++){
+            document.getElementById('status').value = 'Searching...';
+            readFile(files[i], term);
+          }    
         } else {
-
-          document.getElementById('status').value = "There are no current results to search";
-
-
-
+            
+            document.getElementById('output').value = '';
+            document.getElementById('status').value = 'Searching...';
+            parse(pastedText, term, null);
         }
-    }
+            
+        }
+
+        function searchResults(){
+
+          if(results.length){
+            
+            results = [];
+            var resultsText = document.getElementById('output').value;
+            var term = document.getElementById('search').value.split(',');
+            document.getElementById('output').value = '';
+            document.getElementById('status').value = 'Searching...';
+
+            parse(resultsText, term, null);
+
+          } else {
+
+            document.getElementById('status').value = "There are no current results to search";
+
+
+
+          }
+      }
   }
 
 
