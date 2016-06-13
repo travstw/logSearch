@@ -213,7 +213,7 @@
     var outputString = textArea.value;
     
     obj.matches.forEach(function(item){      
-        outputString += match + '\n';              
+        outputString += item + '\n';              
     });
     
     textArea.value = outputString;
