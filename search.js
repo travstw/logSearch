@@ -257,7 +257,7 @@
     textArea.value = outputString;
     var end = new Date().getTime();
     var execution = end - searchTime;
-    console.log(execution);
+    console.log(execution + 'ms');
     
   }
 
