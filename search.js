@@ -162,10 +162,13 @@
     // resultsData();
     results.push(filtered);
     var end = (files) ? files.length : 1;
+    
     if(results.length === end){
       console.log(results);
       addToTextArea();
 
+    } else {
+      addToTextAreaTemp(filtered);
     }
    
   }
@@ -205,11 +208,23 @@
     
   }
 
+  function addToTextAreaTemp(obj){
+    var textArea = document.getElementById('output');
+    var outputString = textArea.value;
+    
+    obj.matches.forEach(function(item){      
+        outputString += match + '\n';              
+    });
+    
+    textArea.value = outputString;
+
+  }
+
 
   function addToTextArea(){
     var textArea = document.getElementById('output');
-    var resultsArea = document.getElementById('status');
-    var outputString = textArea.value;
+    
+    var outputString = '';
     var results_Sorted = results.sort(sortResults);
 
     results_Sorted.forEach(function(item){
