@@ -39,6 +39,16 @@
     }, 30);
   }
 
+  var searchButton = document.getElementById('searchButton');
+
+  searchButton.addEventListener('click', search);
+
+  var searchResultsButton = document.getElementById('searchResults');
+
+  searchResultsButton.addEventListener('click', searchResults);
+
+
+
   document.getElementById('search').addEventListener('keyup', function(e){
     if(e.keyCode === 13){
       search();
