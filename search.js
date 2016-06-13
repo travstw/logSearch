@@ -68,40 +68,45 @@
     
     
     var term = document.getElementById('search').value.split(',');
+
+    if(!term){
+      alert('No search terms entered');
+    } else {
     
-    if(files){
-      document.getElementById('output').value = '';
-      for (var i = 0; i < Object.keys(files).length; i++){
-        document.getElementById('status').value = 'Searching...';
-        readFile(files[i], term);
-      }    
-    } else {
-        
+      if(files){
         document.getElementById('output').value = '';
-        document.getElementById('status').value = 'Searching...';
-        parse(pastedText, term, null);
-    }
-        
-  }
+        for (var i = 0; i < Object.keys(files).length; i++){
+          document.getElementById('status').value = 'Searching...';
+          readFile(files[i], term);
+        }    
+      } else {
+          
+          document.getElementById('output').value = '';
+          document.getElementById('status').value = 'Searching...';
+          parse(pastedText, term, null);
+      }
+          
+      }
 
-  function searchResults(){
+      function searchResults(){
 
-    if(results.length){
-      
-      results = [];
-      var resultsText = document.getElementById('output').value;
-      var term = document.getElementById('search').value.split(',');
-      document.getElementById('output').value = '';
-      document.getElementById('status').value = 'Searching...';
+        if(results.length){
+          
+          results = [];
+          var resultsText = document.getElementById('output').value;
+          var term = document.getElementById('search').value.split(',');
+          document.getElementById('output').value = '';
+          document.getElementById('status').value = 'Searching...';
 
-      parse(resultsText, term, null);
+          parse(resultsText, term, null);
 
-    } else {
+        } else {
 
-      document.getElementById('status').value = "There are no current results to search";
+          document.getElementById('status').value = "There are no current results to search";
 
 
 
+        }
     }
   }
 
