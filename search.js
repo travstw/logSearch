@@ -2,6 +2,7 @@
   var files;
   var pastedText;
   var results = [];
+  var searchTime;
 
 
   function handleFileSelect(evt) {
@@ -65,6 +66,7 @@
 
   function search(){
     results = [];
+    searchTime = new Date().getTime();
 
     var termValue = document.getElementById('search').value;
     
@@ -253,6 +255,9 @@
     });
     
     textArea.value = outputString;
+    var end = new Date().getTime();
+    var execution = end - searchTime;
+    console.log(execution);
     
   }
 
