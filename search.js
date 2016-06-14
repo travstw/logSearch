@@ -204,7 +204,7 @@
         var number = 0;
         results.forEach(function(y){ 
           y.matches.forEach(function(z){
-            if (y.toLowerCase().indexOf(z.toLowerCase()) !== -1){
+            if (z.toLowerCase().indexOf(x.toLowerCase()) !== -1){
             number++;
           }      
 
