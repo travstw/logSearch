@@ -70,9 +70,11 @@
 
     var termValue = document.getElementById('search').value;
     
-    if(!termValue){      
+      if(!termValue){      
         alert('No search terms entered');
-      
+      } else if (!pastedText && !files) {
+        alert('No text to search');
+
       } else {
 
         var term = termValue.split(',');
