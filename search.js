@@ -161,6 +161,7 @@
       });
       
     } else {
+
       parsed.forEach(function(t){
         var allMatched;
         
@@ -197,8 +198,9 @@
 
   function resultsData(term){
     var resultsDataArr = [];
-    
-    results.forEach(function(y){       
+    var results_Sorted = results.sort(sortResults);
+
+    results_Sorted.forEach(function(y){       
       term.forEach(function(x){
         var termObject = {name: x};
         var number = 0;
