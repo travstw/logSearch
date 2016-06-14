@@ -180,12 +180,13 @@
       
      
     }
-    // resultsData();
+    
     results.push(filtered);
     var end = (files) ? files.length : 1;
     
     if(results.length === end){
       console.log(results);
+      resultsData(term);
       addToTextArea();
 
     } else {
@@ -194,31 +195,37 @@
    
   }
 
-  function resultsData(){
-    var fileName = (file) ? file.name : 'text'; 
+  function resultsData(term){
+    var resultsDataArr = [];
     
-    if(arr){
+    if(results.length){
       term.forEach(function(x){
         var termObject = {name: x};
         var number = 0;
-        arr.forEach(function(y){        
-          if (y.toLowerCase().indexOf(x.toLowerCase()) !== -1){
+        results.forEach(function(y){ 
+          y.matches.forEach(function(z){
+            if (y.toLowerCase().indexOf(z.toLowerCase()) !== -1){
             number++;
           }      
+
+          }); 
+
+          termObject.number = (number > 0) ? number : 'No';
+          termObject.file = y.name;
+          resultsDataArr.push(termObject);      
+          
         });
-        termObject.number = (number > 0) ? number : 'No';
-        termObject.file = fileName;
-        results.push(termObject);
+        
       });
-      console.log(results);
+
+      var end  = new Date().getTime();
+      var execution = (end - searchTime) + 'ms';
       
-       
-      console.log(fileName);
-    
+  
       var resultsArea = document.getElementById('status');
       
-      var resultsString = 'Search Results: \n\n';
-      results.forEach(function(item){
+      var resultsString = 'Query time: ' + execution + '\n\nSearch Results: \n\n';
+      resultsDataArr.forEach(function(item){
         var matches = (item.number === 1) ? 'match' : 'matches';
         resultsString += '\'' + item.name + '\'' + ' --- ' + item.number + ' ' + matches + ' found in ' + item.file + '\n';
       });
@@ -257,9 +264,7 @@
     });
     
     textArea.value = outputString;
-    var end = new Date().getTime();
-    var execution = end - searchTime;
-    console.log(execution + 'ms');
+    
     
   }
 
