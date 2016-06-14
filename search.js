@@ -198,26 +198,22 @@
   function resultsData(term){
     var resultsDataArr = [];
     
-    
+    results.forEach(function(y){       
       term.forEach(function(x){
         var termObject = {name: x};
         var number = 0;
-        results.forEach(function(y){ 
-          y.matches.forEach(function(z){
-            if (z.toLowerCase().indexOf(x.toLowerCase()) !== -1){
+        y.matches.forEach(function(z){
+          if (z.toLowerCase().indexOf(x.toLowerCase()) !== -1){
             number++;
           }  
-          termObject.number = (number > 0) ? number : 'No';
-          termObject.file = y.name;
-          resultsDataArr.push(termObject);        
-
+               
         }); 
-
-            
-          
-        });
-        
+        termObject.number = (number > 0) ? number : 'No';
+        termObject.file = y.name;
+        resultsDataArr.push(termObject);            
       });
+        
+    });
 
       console.log(resultsDataArr);
 
