@@ -218,13 +218,15 @@
         
       });
 
+      console.log(resultsDataArr);
+
       var end  = new Date().getTime();
       var execution = (end - searchTime) + 'ms';
       
   
       var resultsArea = document.getElementById('status');
       
-      var resultsString = 'Query time: ' + execution + '\n\nSearch Results: \n\n';
+      var resultsString = 'Query time: ' + execution + '   Search Results: \n\n';
       resultsDataArr.forEach(function(item){
         var matches = (item.number === 1) ? 'match' : 'matches';
         resultsString += '\'' + item.name + '\'' + ' --- ' + item.number + ' ' + matches + ' found in ' + item.file + '\n';
