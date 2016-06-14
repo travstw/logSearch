@@ -225,7 +225,7 @@
   
       var resultsArea = document.getElementById('status');
       
-      var resultsString = 'Query Time: ' + execution + '\n\n';
+      var resultsString = 'Search Time: ' + execution + '\n\n';
       resultsDataArr.forEach(function(item){
         var matches = (item.number === 1) ? 'match' : 'matches';
         resultsString += '\'' + item.name + '\'' + ' --- ' + item.number + ' ' + matches + ' found in ' + item.file + '\n';
