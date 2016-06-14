@@ -198,7 +198,7 @@
   function resultsData(term){
     var resultsDataArr = [];
     
-    if(results.length){
+    
       term.forEach(function(x){
         var termObject = {name: x};
         var number = 0;
@@ -206,13 +206,14 @@
           y.matches.forEach(function(z){
             if (z.toLowerCase().indexOf(x.toLowerCase()) !== -1){
             number++;
-          }      
-
-          }); 
-
+          }  
           termObject.number = (number > 0) ? number : 'No';
           termObject.file = y.name;
-          resultsDataArr.push(termObject);      
+          resultsDataArr.push(termObject);        
+
+        }); 
+
+            
           
         });
         
@@ -226,7 +227,7 @@
   
       var resultsArea = document.getElementById('status');
       
-      var resultsString = 'Query time: ' + execution + '   Search Results: \n\n';
+      var resultsString = 'Query Time: ' + execution + '   Search Results: \n\n';
       resultsDataArr.forEach(function(item){
         var matches = (item.number === 1) ? 'match' : 'matches';
         resultsString += '\'' + item.name + '\'' + ' --- ' + item.number + ' ' + matches + ' found in ' + item.file + '\n';
@@ -234,7 +235,7 @@
 
       resultsArea.value = resultsString;
       
-    }
+    
     
   }
 
