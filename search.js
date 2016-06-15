@@ -92,9 +92,10 @@
             parse(pastedText, term, null);
         }
             
-        }
+      }        
+  }
 
-        function searchResults(){
+  function searchResults(){
 
           if(results.length){
             
@@ -110,10 +111,7 @@
 
             document.getElementById('status').value = "There are no current results to search";
 
-
-
           }
-      }
   }
 
 
