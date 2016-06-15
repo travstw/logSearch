@@ -44,9 +44,9 @@
 
   searchButton.addEventListener('click', search);
 
-  // var searchResultsButton = document.getElementById('searchResults');
+  var searchResultsButton = document.getElementById('searchResults');
 
-  // searchResultsButton.addEventListener('click', searchResults);
+  searchResultsButton.addEventListener('click', searchResults);
 
 
 
