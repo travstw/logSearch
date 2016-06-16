@@ -9,7 +9,7 @@ body {
   height: 30px;
   background-color: #101E27;
   color: #e6e6e6;
-  border: none;
+  border: 1px solid #e6e6e6;
 }
 
 #searchButton {
