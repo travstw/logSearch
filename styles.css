@@ -9,6 +9,12 @@ body {
   background-color: #e6e6e6;
 }
 
+#searchButton {
+  border: 1px solid #e6e6e6;
+  background-color: transparent;
+  color: #e6e6e6;
+}
+
 :: -webkit-scrollbar {
   background-color: #023757;
 }
