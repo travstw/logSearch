@@ -18,7 +18,7 @@ body {
   padding-left: 8px;
 }
 
-#searchButton {
+#searchButton, #formatJira {
   border: 1px solid #17A2C3;
   background-color: #101E27;
   color: #e6e6e6;
