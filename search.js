@@ -44,6 +44,10 @@
 
   searchButton.addEventListener('click', search);
 
+  var formatJira = document.getElementById('formatJira');
+
+  formatJira.addEventListener('click', jira);
+
   // var searchResultsButton = document.getElementById('searchResults');
 
   // searchResultsButton.addEventListener('click', searchResults);
@@ -61,6 +65,46 @@
   dropZone.addEventListener('dragover', handleDragOver, false);
   dropZone.addEventListener('drop', handleFileSelect, false);
   dropZone.addEventListener('paste', handlePaste, false);
+
+
+
+  function jira(){
+    lines = pastedText.split('\n');
+    linesArr = [];
+
+    lines.forEach(function(line){
+      var l = line.split('\t');
+      linesArr.push(l);
+    })
+
+    for (var i = 0; i < linesArr.length; i++) {
+      var head = (i === 0) ? '||' : '|';
+
+      for (var j= 0; j < linesArr[i].length; j++){
+        linesArr[i][j] = head + linesArr[i][j];
+      }
+    }
+
+    printJiraToText(linesArr);
+  }
+
+  
+  function printJiraToText(arr){
+    var outputString = '';
+
+    arr.forEach(function(line){
+      lineString = '';
+      
+      line.forEach(function(item){
+        lineString += item + ' ';
+      })
+
+      lineString += '\n';
+      outputString += lineString;
+    })
+
+    document.getElementById('output').value = outputString;
+  }
 
 
 
